@@ -2,7 +2,11 @@ const express = require('express');
 
 const app = express();
 
+app.use(express.json());
+
 app.get('/courses', (request, response) => {
+    const {page = 1, limit = 10} = request.query;
+
     return response.json(
         [
             'Curso 1',
@@ -13,6 +17,9 @@ app.get('/courses', (request, response) => {
 });
 
 app.post('/courses', (request, response) => {
+
+    const { name, age } = request.body;
+
     return response.json(
         [
             'Curso 1',
@@ -24,6 +31,9 @@ app.post('/courses', (request, response) => {
 })
 
 app.put('/courses/:id', (request, response) => {
+
+    const {id} = request.params;
+    
     return response.json(
         [
             'Curso 6',
@@ -48,13 +58,13 @@ app.patch('/courses/:id', (request, response) => {
 app.delete('/courses/:id', (request, response) => {
     return response.json(
         [
-            'Curso 6',
+            'Curso 6', 
             'Curso 2',
             'Curso 4'
         ]
     )
 })
 
-app.listen(3000, () => {
-    console.log('Server running on port 3000');
+app.listen(3333, () => {
+    console.log('Server running on port 3333');
 })
