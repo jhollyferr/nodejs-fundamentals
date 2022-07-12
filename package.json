@@ -5,6 +5,9 @@
   "repository": "https://github.com/jhollyferr/nodejs-fundamentals.git",
   "author": "Jhollyfer Rodrigues <jhollyferr@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
   "dependencies": {
     "express": "^4.18.1"
   },
